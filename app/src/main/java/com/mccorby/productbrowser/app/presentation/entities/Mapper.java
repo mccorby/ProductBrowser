@@ -21,6 +21,17 @@ public class Mapper {
         return product;
     }
 
+    public static PresentationProduct transform(Product aProduct) {
+        PresentationProduct product = new PresentationProduct();
+        product.setDescription(aProduct.getDescription());
+        product.setImageUrl(aProduct.getImageUrl());
+        product.setPrice(aProduct.getPrice());
+        product.setName(aProduct.getName());
+        product.setId(aProduct.getId());
+
+        return product;
+    }
+
     public static List<Product> transform(List<PresentationProduct> presentationProductList) {
         List<Product> result = new ArrayList<>(presentationProductList.size());
 
