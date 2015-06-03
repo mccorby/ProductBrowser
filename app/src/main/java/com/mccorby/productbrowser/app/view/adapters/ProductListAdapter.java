@@ -48,7 +48,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         Picasso.with(mContext)
                 .load(product.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_error)
+                .error(R.drawable.ic_error)
                 .transform(new ThumbnailTransformation())
                 .into(viewHolder.mImageView);
     }
