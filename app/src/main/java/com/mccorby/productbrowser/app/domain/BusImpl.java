@@ -1,5 +1,8 @@
 package com.mccorby.productbrowser.app.domain;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import com.mccorby.productbrowser.domain.abstractions.Bus;
 
 import de.greenrobot.event.EventBus;
@@ -8,7 +11,7 @@ import de.greenrobot.event.EventBus;
  * Created by JAC on 03/06/2015.
  */
 public class BusImpl implements Bus {
-
+    private static final Handler handler = new Handler(Looper.getMainLooper());
     private EventBus mEventBus;
 
     public BusImpl(EventBus eventBus) {
@@ -16,8 +19,12 @@ public class BusImpl implements Bus {
     }
 
     @Override
-    public void post(Object object) {
-        mEventBus.post(object);
+    public void post(final Object object) {
+        handler.post(new Runnable() {
+            @Override public void run() {
+                mEventBus.post(object);
+            }
+        });
     }
 
     @Override

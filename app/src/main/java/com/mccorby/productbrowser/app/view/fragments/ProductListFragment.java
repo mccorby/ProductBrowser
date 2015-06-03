@@ -4,7 +4,7 @@ package com.mccorby.productbrowser.app.view.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import com.mccorby.productbrowser.app.domain.InteractorInvokerImpl;
 import com.mccorby.productbrowser.app.presentation.entities.PresentationProduct;
 import com.mccorby.productbrowser.app.presentation.productlist.ProductListPresenter;
 import com.mccorby.productbrowser.app.presentation.productlist.ProductListView;
-import com.mccorby.productbrowser.app.view.ProductListAdapter;
+import com.mccorby.productbrowser.app.view.adapters.ProductListAdapter;
 import com.mccorby.productbrowser.datasource.network.NetworkDatasourceImpl;
 import com.mccorby.productbrowser.datasource.network.ProductApiService;
 import com.mccorby.productbrowser.domain.abstractions.Bus;
@@ -40,6 +40,7 @@ import retrofit.RestAdapter;
 public class ProductListFragment extends Fragment implements ProductListView {
 
     private static final String TAG = ProductListFragment.class.getSimpleName();
+    private static final int GRID_COLUMNS = 2;
 
     // TODO This member to be injected with @Inject
     ProductListPresenter mPresenter;
@@ -92,9 +93,9 @@ public class ProductListFragment extends Fragment implements ProductListView {
 
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_product_list_rv);
         // Use a linear layout manager
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), GRID_COLUMNS);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new ProductListAdapter();
+        mAdapter = new ProductListAdapter(getActivity());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
 
@@ -107,5 +108,10 @@ public class ProductListFragment extends Fragment implements ProductListView {
     @Override
     public void refreshProductList(List<PresentationProduct> productList) {
         Log.d(TAG, "Refreshing product list in view " + productList.size());
+        for (PresentationProduct product : productList) {
+            Log.d(TAG, product.toString());
+        }
+        mAdapter.setProductList(productList);
+        mAdapter.notifyDataSetChanged();
     }
 }

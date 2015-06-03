@@ -25,7 +25,7 @@ public class Mapper {
         Product domainProduct = new Product();
         domainProduct.setImageUrl(apiProduct.getImageUrl());
         domainProduct.setName(apiProduct.getName());
-        domainProduct.setImageUrl(apiProduct.getId());
+        domainProduct.setId(apiProduct.getId());
         domainProduct.setPrice(apiProduct.getPrice());
         domainProduct.setDescription(apiProduct.getDescription());
 

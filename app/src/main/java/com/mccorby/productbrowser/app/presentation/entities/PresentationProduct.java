@@ -50,4 +50,15 @@ public class PresentationProduct {
     public void setDescription(String description) {
         mDescription = description;
     }
+
+    @Override
+    public String toString() {
+        return "PresentationProduct{" +
+                "mId='" + mId + '\'' +
+                ", mName='" + mName + '\'' +
+                ", mImageUrl='" + mImageUrl + '\'' +
+                ", mPrice=" + mPrice +
+                ", mDescription='" + mDescription + '\'' +
+                '}';
+    }
 }

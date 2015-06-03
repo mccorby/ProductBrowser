@@ -28,7 +28,7 @@ public class NetworkDatasourceImpl implements NetworkDatasource {
 
     @Override
     public Product getProduct(String id) {
-        ApiProduct result = mApiService.getProduct(String.valueOf(id));
+        ApiProduct result = mApiService.getProduct(id);
         return Mapper.transform(result);
     }
 }
