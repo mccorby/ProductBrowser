@@ -1,20 +1,14 @@
-package com.mccorby.productbrowser.datasource.network.entities;
-
-import com.google.gson.annotations.SerializedName;
+package com.mccorby.productbrowser.app.presentation.entities;
 
 /**
  * Created by JAC on 03/06/2015.
  */
-public class ApiProduct {
-    @SerializedName("product_id")
+public class PresentationProduct {
+
     private String mId;
-    @SerializedName("name")
     private String mName;
-    @SerializedName("image")
     private String mImageUrl;
-    @SerializedName("price")
     private int mPrice;
-    @SerializedName("description")
     private String mDescription;
 
     public String getId() {

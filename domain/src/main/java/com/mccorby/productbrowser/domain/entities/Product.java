@@ -6,7 +6,15 @@ public class Product {
     private String mName;
     private String mImageUrl;
     private int mPrice;
+    private String mDescription;
 
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
+    }
 
     public String getName() {
         return mName;
