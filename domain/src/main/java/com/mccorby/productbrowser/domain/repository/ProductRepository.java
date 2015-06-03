@@ -10,5 +10,5 @@ import java.util.List;
 public interface ProductRepository {
 
     List<Product> getProducts();
-    Product getProduct(Integer identifier);
+    Product getProduct(String identifier);
 }

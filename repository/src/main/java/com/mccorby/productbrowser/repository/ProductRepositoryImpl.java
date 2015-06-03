@@ -32,7 +32,7 @@ public class ProductRepositoryImpl implements ProductRepository{
     }
 
     @Override
-    public Product getProduct(Integer identifier) {
+    public Product getProduct(String identifier) {
         return mNetworkDatasource.getProduct(identifier);
     }
 }

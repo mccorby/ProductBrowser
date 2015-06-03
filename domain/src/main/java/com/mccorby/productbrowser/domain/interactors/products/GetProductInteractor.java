@@ -12,9 +12,9 @@ public class GetProductInteractor implements Interactor {
 
     private final ProductRepository mRepository;
     private final Bus mBus;
-    private final Integer mId;
+    private final String mId;
 
-    public GetProductInteractor(Bus bus, ProductRepository repository, Integer identifier) {
+    public GetProductInteractor(Bus bus, ProductRepository repository, String identifier) {
         this.mBus = bus;
         this.mRepository = repository;
         this.mId = identifier;

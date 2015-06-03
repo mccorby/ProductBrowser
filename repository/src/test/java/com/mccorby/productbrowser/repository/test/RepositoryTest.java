@@ -37,7 +37,7 @@ public class RepositoryTest {
             }
 
             @Override
-            public Product getProduct(Integer id) {
+            public Product getProduct(String id) {
                 return mResult.get(0);
             }
         };
@@ -46,7 +46,7 @@ public class RepositoryTest {
         List<Product> result = repository.getProducts();
         assertEquals(mExpectedResult.get(0).getId(), result.get(0).getId());
 
-        Product product = repository.getProduct(1);
+        Product product = repository.getProduct("1");
         assertEquals(mExpectedResult.get(0).getId(), product.getId());
 
     }

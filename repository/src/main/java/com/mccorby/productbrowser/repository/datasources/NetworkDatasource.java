@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface NetworkDatasource {
     List<Product> getProducts();
-    Product getProduct(Integer id);
+    Product getProduct(String id);
 }

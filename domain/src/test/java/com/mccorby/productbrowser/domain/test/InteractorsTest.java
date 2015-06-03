@@ -58,7 +58,7 @@ public class InteractorsTest {
             }
 
             @Override
-            public Product getProduct(Integer identifier) {
+            public Product getProduct(String identifier) {
                 return null;
             }
         };
