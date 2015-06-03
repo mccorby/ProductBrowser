@@ -1,4 +1,4 @@
-package com.mccorby.productbrowser.entities;
+package com.mccorby.productbrowser.domain.entities;
 
 public class Product {
 

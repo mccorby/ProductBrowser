@@ -1,6 +1,6 @@
-package com.mccorby.productbrowser.repository;
+package com.mccorby.productbrowser.domain.repository;
 
-import com.mccorby.productbrowser.entities.Product;
+import com.mccorby.productbrowser.domain.entities.Product;
 
 import java.util.List;
 

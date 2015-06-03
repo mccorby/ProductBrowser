@@ -1,4 +1,4 @@
-package com.mccorby.productbrowser.interactors;
+package com.mccorby.productbrowser.domain.interactors;
 
 /**
  * Interface defining a command

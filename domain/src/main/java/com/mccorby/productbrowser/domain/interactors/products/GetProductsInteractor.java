@@ -1,9 +1,9 @@
-package com.mccorby.productbrowser.interactors.products;
+package com.mccorby.productbrowser.domain.interactors.products;
 
-import com.mccorby.productbrowser.abstractions.Bus;
-import com.mccorby.productbrowser.entities.Product;
-import com.mccorby.productbrowser.interactors.Interactor;
-import com.mccorby.productbrowser.repository.ProductRepository;
+import com.mccorby.productbrowser.domain.abstractions.Bus;
+import com.mccorby.productbrowser.domain.entities.Product;
+import com.mccorby.productbrowser.domain.interactors.Interactor;
+import com.mccorby.productbrowser.domain.repository.ProductRepository;
 
 import java.util.List;
 

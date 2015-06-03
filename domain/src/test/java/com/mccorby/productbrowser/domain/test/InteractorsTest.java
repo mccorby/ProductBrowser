@@ -1,9 +1,11 @@
-import com.mccorby.productbrowser.abstractions.Bus;
-import com.mccorby.productbrowser.entities.Product;
-import com.mccorby.productbrowser.interactors.Interactor;
-import com.mccorby.productbrowser.interactors.InteractorInvoker;
-import com.mccorby.productbrowser.interactors.products.GetProductsInteractor;
-import com.mccorby.productbrowser.repository.ProductRepository;
+package com.mccorby.productbrowser.domain.test;
+
+import com.mccorby.productbrowser.domain.abstractions.Bus;
+import com.mccorby.productbrowser.domain.entities.Product;
+import com.mccorby.productbrowser.domain.interactors.Interactor;
+import com.mccorby.productbrowser.domain.interactors.InteractorInvoker;
+import com.mccorby.productbrowser.domain.interactors.products.GetProductsInteractor;
+import com.mccorby.productbrowser.domain.repository.ProductRepository;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.mccorby.productbrowser.abstractions;
+package com.mccorby.productbrowser.domain.abstractions;
 
 /**
  * Created by JAC on 03/06/2015.
