@@ -3,6 +3,7 @@ package com.mccorby.productbrowser.app.view.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,8 @@ import com.mccorby.productbrowser.app.domain.InteractorInvokerImpl;
 import com.mccorby.productbrowser.app.presentation.entities.PresentationProduct;
 import com.mccorby.productbrowser.app.presentation.productlist.ProductListPresenter;
 import com.mccorby.productbrowser.app.presentation.productlist.ProductListView;
+import com.mccorby.productbrowser.app.view.Constants;
+import com.mccorby.productbrowser.app.view.activities.ProductDetailActivity;
 import com.mccorby.productbrowser.app.view.adapters.ProductListAdapter;
 import com.mccorby.productbrowser.datasource.network.NetworkDatasourceImpl;
 import com.mccorby.productbrowser.datasource.network.ProductApiService;
@@ -37,7 +40,7 @@ import retrofit.RestAdapter;
 /**
  *
  */
-public class ProductListFragment extends Fragment implements ProductListView {
+public class ProductListFragment extends Fragment implements ProductListView, ProductListAdapter.OnProductClickListener {
 
     private static final String TAG = ProductListFragment.class.getSimpleName();
     private static final int GRID_COLUMNS = 2;
@@ -95,7 +98,7 @@ public class ProductListFragment extends Fragment implements ProductListView {
         // Use a linear layout manager
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), GRID_COLUMNS);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new ProductListAdapter(getActivity());
+        mAdapter = new ProductListAdapter(getActivity(), this);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
 
@@ -113,5 +116,13 @@ public class ProductListFragment extends Fragment implements ProductListView {
         }
         mAdapter.setProductList(productList);
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onProductSelected(PresentationProduct product) {
+        // Start detail activity. This could have represented by a Command itself
+        Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+        intent.putExtra(Constants.ARG_PRODUCT_ID, product.getId());
+        getActivity().startActivity(intent);
     }
 }

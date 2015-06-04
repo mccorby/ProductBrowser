@@ -24,9 +24,15 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private Context mContext;
     private List<PresentationProduct> mProductList;
+    private OnProductClickListener mListener;
 
-    public ProductListAdapter(Context context) {
+    public interface OnProductClickListener {
+        void onProductSelected(PresentationProduct product);
+    }
+
+    public ProductListAdapter(Context context, OnProductClickListener listener) {
         this.mContext = context;
+        mListener = listener;
     }
 
     @Override
@@ -42,7 +48,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         viewHolder.mName.setText(product.getName());
 
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String priceString = formatter.format(product.getPrice() / 100);
+        String priceString = formatter.format((float) product.getPrice() / 100);
 
         viewHolder.mPrice.setText(priceString);
         Picasso.with(mContext)
@@ -73,6 +79,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mListener.onProductSelected(mProductList.get(getPosition()));
 
                 }
             });

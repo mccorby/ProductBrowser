@@ -6,4 +6,6 @@ package com.mccorby.productbrowser.app.view;
 public class Constants {
     public static final int MAX_WIDTH = 350;
     public static final int MAX_HEIGHT = 350;
+
+    public static final String ARG_PRODUCT_ID = "argProductId";
 }

@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".app.view.activities.ProductDetailActivity"
-            android:label="@string/title_activity_product_detail" >
+            android:label="@string/title_activity_product_detail"
+            android:parentActivityName=".app.view.activities.ProductListActivity">
         </activity>
     </application>
 

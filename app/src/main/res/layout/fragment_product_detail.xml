@@ -1,13 +1,49 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.mccorby.productbrowser.app.view.fragments.ProductDetailFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:padding="@dimen/abc_list_item_padding_horizontal_material">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/fragment_product_detail_image_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            tools:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:id="@+id/fragment_product_detail_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_product_detail_image_iv"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Title"/>
+
+        <TextView
+            android:id="@+id/fragment_product_detail_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_product_detail_name_tv"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:text="12.3"/>
+
+        <TextView
+            android:id="@+id/fragment_product_detail_description_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_product_detail_price_tv"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:text="This is a text block which should be displayed and can be very long"/>
+    </RelativeLayout>
+</ScrollView>
